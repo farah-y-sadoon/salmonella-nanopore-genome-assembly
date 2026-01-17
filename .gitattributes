@@ -1,2 +1,3 @@
 SRR32410565.fastq filter=lfs diff=lfs merge=lfs -text
 SRR32410565 filter=lfs diff=lfs merge=lfs -text
+GCF_000006945.2_ASM694v2_genomic.fna filter=lfs diff=lfs merge=lfs -text
