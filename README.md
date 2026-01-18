@@ -24,11 +24,13 @@ flowchart TD
   A["Raw ONT R10.4 reads<br/>(SRR32410565)"] --> B["Seqkit v2.12.0<br/>Filter: --min-len 1000, --min-qual 16"]
   B --> C["Flye v2.9.6<br/>--nano-hq, --genome-size 5m, --asm-coverage 162"]
   C --> D["Medaka v2.2.0<br/>medaka_consensus, --bacteria"]
-  D --> E["QUAST v5.3.0<br/>QC vs ASM694v2"]
   
-  D --> F["MUMmer v4.x"]
-  F --> G["nucmer alignment<br/>delta-filter -1"]
-  G --> H["show-snps<br/>Identify SNPs/indels"]
-  H --> I["mummerplot<br/>Visualize differences"]
+  subgraph MUMmer_Suite ["MUMmer v4.x"]
+    F["nucmer alignment<br/>delta-filter -1"] --> G["show-snps<br/>Identify SNPs/indels"]
+    G --> H["mummerplot<br/>Visualize differences"]
+  end
+
+  D --> F
+  D --> E["QUAST v5.3.0<br/>QC vs ASM694v2"]
 
 ```
