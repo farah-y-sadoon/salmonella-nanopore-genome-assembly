@@ -20,7 +20,7 @@ For variant detection, the polished assembly `.fasta` produced by Medaka will be
 
 ### Pipeline 
 ```mermaid
-flowchart TD
+flowchart LR
   A["Raw ONT R10.4 reads<br/>(SRR32410565)"] --> B["Seqkit v2.12.0<br/>Filter: --min-len 1000, --min-qual 16"]
   B --> C["Flye v2.9.6<br/>--nano-hq, --genome-size 5m, --asm-coverage 162"]
   C --> D["Medaka v2.2.0<br/>medaka_consensus, --bacteria"]
