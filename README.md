@@ -49,6 +49,6 @@ flowchart LR
 12. Wick RR, Judd LM, Stinear TP, Monk IR. 2025. Are reads required? High-precision variant calling from bacterial genome assemblies. Access Microbiology 7. [doi: 10.1099/acmi.0.001025.v3](https:doi.org/10.1099/acmi.0.001025.v3) 
 13. Shen W, Le S, Li Y, Hu F. 2016. SeqKit: A Cross-Platform and Ultrafast Toolkit for FASTA/Q File Manipulation. PLOS ONE 11:e0163962. [doi:10.1371/journal.pone.0163962](https://doi.org/10.1371/journal.pone.0163962) 
 14. Kolmogorov M, Yuan J, Lin Y, Pevzner PA. 2019. Assembly of long, error-prone reads using repeat graphs. Nature Biotechnology 37:540–546. [doi:10.1038/s41587-019-0072-8](https://doi.org/10.1038/s41587-019-0072-8) 
-15. 2021. nanoporetech/medaka. GitHub. [github.com/nanoporetech/medaka](https://github.com/nanoporetech/medaka).
+15\. 2021. nanoporetech/medaka. GitHub. [github.com/nanoporetech/medaka](https://github.com/nanoporetech/medaka).
 16. Gurevich A, Saveliev V, Vyahhi N, Tesler G. 2013. QUAST: quality assessment tool for genome assemblies. Bioinformatics 29:1072–1075. [doi:10.1093/bioinformatics/btt086](https://doi.org/10.1093/bioinformatics/btt086) 
 17. Marçais G, Delcher AL, Phillippy AM, Coston R, Salzberg SL, Zimin A. 2018. MUMmer4: A fast and versatile genome alignment system. PLOS Computational Biology 14:e1005944. [doi:10.1371/journal.pcbi.1005944](https://doi.org/10.1371/journal.pcbi.1005944)
