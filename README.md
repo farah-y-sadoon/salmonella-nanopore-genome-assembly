@@ -19,6 +19,7 @@ Raw ONT R10.4 reads from NCBI SRA (SRR32410565) will be used for the analysis. T
 For variant detection, the polished assembly `.fasta` produced by Medaka will be aligned to the reference genome using MUMmer v4.x (17). The `nucmer` subtool will align the assembly to the reference genome with `delta-filter -1`  to produce a one-to-one alignment that will be used by the `show-snps` subtool to identify SNPs and indels. Finally, the `mummerplot` subtool will be used to visualize the differences between the reference and the assembled genome.
 
 ### Pipeline 
+```mermaid
 flowchart TD
   A[Raw ONT R10.4 reads<br/>(SRR32410565)] --> B[Seqkit v2.12.0<br/>Filter: `--min-len 1000`, `--min-qual 16`]
   B --> C[Flye v2.9.6<br/>`--nano-hq`, `--genome-size 5m`, `--asm-coverage 162`]
@@ -39,4 +40,4 @@ flowchart TD
   style G fill:#f1f3f5,stroke:#333,stroke-width:1px
   style H fill:#f1f3f5,stroke:#333,stroke-width:1px
   style I fill:#f8f9fa,stroke:#333,stroke-width:1px
-
+```
