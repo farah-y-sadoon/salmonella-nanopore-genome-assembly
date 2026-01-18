@@ -21,23 +21,13 @@ For variant detection, the polished assembly `.fasta` produced by Medaka will be
 ### Pipeline 
 ```mermaid
 flowchart TD
-  A[Raw ONT R10.4 reads<br/>(SRR32410565)] --> B[Seqkit v2.12.0<br/>Filter: `--min-len 1000`, `--min-qual 16`]
-  B --> C[Flye v2.9.6<br/>`--nano-hq`, `--genome-size 5m`, `--asm-coverage 162`]
-  C --> D[Medaka v2.2.0<br/>`medaka_consensus`, `--bacteria`]
-  D --> E[QUAST v5.3.0<br/>QC vs ASM694v2<br/>Metrics: contigs, length, N50, N’s/100kbp, indels/100kbp]
+  A[Raw ONT R10.4 reads\n(SRR32410565)] --> B[Seqkit v2.12.0\nFilter: `--min-len 1000`, `--min-qual 16`]
+  B --> C[Flye v2.9.6\n`--nano-hq`, `--genome-size 5m`, `--asm-coverage 162`]
+  C --> D[Medaka v2.2.0\n`medaka_consensus`, `--bacteria`]
+  D --> E[QUAST v5.3.0\nQC vs ASM694v2\nMetrics: contigs, length, N50, N’s/100kbp, indels/100kbp]
   
   D --> F[MUMmer v4.x]
-  F --> G[`nucmer` alignment<br/>`delta-filter -1`]
-  G --> H[`show-snps`<br/>Identify SNPs/indels]
-  H --> I[`mummerplot`<br/>Visualize differences]
-
-  style A fill:#f8f9fa,stroke:#333,stroke-width:1px
-  style B fill:#f1f3f5,stroke:#333,stroke-width:1px
-  style C fill:#f1f3f5,stroke:#333,stroke-width:1px
-  style D fill:#f1f3f5,stroke:#333,stroke-width:1px
-  style E fill:#f8f9fa,stroke:#333,stroke-width:1px
-  style F fill:#f1f3f5,stroke:#333,stroke-width:1px
-  style G fill:#f1f3f5,stroke:#333,stroke-width:1px
-  style H fill:#f1f3f5,stroke:#333,stroke-width:1px
-  style I fill:#f8f9fa,stroke:#333,stroke-width:1px
+  F --> G[`nucmer` alignment\n`delta-filter -1`]
+  G --> H[`show-snps`\nIdentify SNPs/indels]
+  H --> I[`mummerplot`\nVisualize differences]
 ```
