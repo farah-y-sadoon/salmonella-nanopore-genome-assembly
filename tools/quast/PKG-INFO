@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: quast
+Version: 5.3.0
+Summary: Genome assembly evaluation tool
+Home-page: http://quast.sf.net
+Download-URL: https://sourceforge.net/projects/quast/files
+Author: Alexey Gurevich, Vladislav Saveliev, Alla Mikheenko, and others
+Author-email: alexey.gurevich@helmholtz-hips.de
+License: GPLv2
+Keywords: bioinformatics,genome assembly,metagenome assembly,visualization
+Platform: Linux
+Platform: OS X
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Visualization
+License-File: LICENSE.txt
+Requires-Dist: joblib
+Requires-Dist: simplejson
+
+QUAST evaluates genome assemblies.
+It works both with and without reference genomes.
+The tool accepts multiple assemblies, thus is suitable for comparison.

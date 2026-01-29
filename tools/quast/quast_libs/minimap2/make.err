@@ -1,0 +1,2 @@
+clang: error: unsupported option '-msse2' for target 'arm64-apple-darwin24.5.0'
+make: *** [ksw2_ll_sse.o] Error 1

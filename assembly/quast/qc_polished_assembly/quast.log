@@ -1,0 +1,67 @@
+/Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/tools/quast/quast.py assembly/medaka_out/consensus.fasta -r data/GCF_000006945.2_ASM694v2_genomic.fna -o assembly/quast/qc_polished_assembly
+
+Version: 5.3.0, c3eb988a
+
+System information:
+  OS: macOS-15.5-arm64-arm-64bit (macosx)
+  Python version: 3.9.23
+  CPUs number: 14
+
+Started: 2026-01-28 22:56:33
+
+Logging to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_polished_assembly/quast.log
+NOTICE: Maximum number of threads is set to 3 (use --threads option to set it manually)
+WARNING: Maximum number of threads is reset to 1 to prevent the crash due to a known bug when using multi-threading in Python 3.8+ on macOS! For multi-threading please downgrade your Python to 3.7. Sorry for the inconvenience! Please find more details in https://github.com/ablab/quast/issues/175
+
+CWD: /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly
+Main parameters: 
+  MODE: default, threads: 1, min contig length: 500, min alignment length: 65, min alignment IDY: 95.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+WARNING: Can't draw plots: python-matplotlib is missing or corrupted.
+
+Reference:
+  /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/data/GCF_000006945.2_ASM694v2_genomic.fna ==> GCF_000006945.2_ASM694v2_genomic
+
+Contigs:
+  Pre-processing...
+  assembly/medaka_out/consensus.fasta ==> consensus
+
+2026-01-28 22:56:33
+Running Basic statistics processor...
+  Reference genome:
+    GCF_000006945.2_ASM694v2_genomic.fna, length = 4951383, num fragments = 2, GC % = 52.24
+  Contig files: 
+    consensus
+  Calculating N50 and L50...
+    consensus, N50 = 3333397, L50 = 1, auN = 2708285.1, Total length = 5151063, GC % = 52.19, # N's per 100 kbp =  0.00
+Done.
+
+2026-01-28 22:56:33
+Running Contig analyzer...
+WARNING: Previous try of Minimap2 compilation was unsuccessful! For forced retrying, please remove /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/tools/quast/quast_libs/minimap2/make.failed and restart QUAST. 
+
+ERROR! Compilation of contig aligner software was unsuccessful! QUAST functionality will be limited.
+Failed aligning the contigs for all the assemblies. Only basic stats are going to be evaluated.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2026-01-28 22:56:33
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 1: Creating Icarus viewers...
+Done
+
+2026-01-28 22:56:33
+RESULTS:
+  Text versions of total report are saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_polished_assembly/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_polished_assembly/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_polished_assembly/report.html
+  Icarus (contig browser) is saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_polished_assembly/icarus.html
+  Log is saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_polished_assembly/quast.log
+
+Finished: 2026-01-28 22:56:33
+Elapsed time: 0:00:00.406178
+NOTICEs: 2; WARNINGs: 3; non-fatal ERRORs: 1
+
+Thank you for using QUAST!

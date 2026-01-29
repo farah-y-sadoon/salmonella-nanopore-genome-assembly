@@ -1,0 +1,19 @@
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  main.c -o main.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  kthread.c -o kthread.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  kalloc.c -o kalloc.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  misc.c -o misc.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  bseq.c -o bseq.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  sketch.c -o sketch.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  sdust.c -o sdust.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  options.c -o options.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  index.c -o index.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  lchain.c -o lchain.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  align.c -o align.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  hit.c -o hit.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  seed.c -o seed.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  map.c -o map.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  format.c -o format.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  pe.c -o pe.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  esterr.c -o esterr.o
+cc -c -g -Wall -O2 -Wc++-compat  -DHAVE_KALLOC  splitidx.c -o splitidx.o
+cc -c -g -Wall -O2 -Wc++-compat  -msse2 -DHAVE_KALLOC  ksw2_ll_sse.c -o ksw2_ll_sse.o

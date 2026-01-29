@@ -1,0 +1,11 @@
+[samfaipath] build FASTA index...
+[M::mm_idx_gen::0.057*1.03] collected minimizers
+[M::mm_idx_gen::0.064*2.11] sorted minimizers
+[M::main::0.064*2.11] loaded/built the index for 3 target sequence(s)
+[M::mm_mapopt_update::0.070*2.01] mid_occ = 10
+[M::mm_idx_stat] kmer size: 17; skip: 10; is_hpc: 0; #seq: 3
+[M::mm_idx_stat::0.076*1.93] distinct minimizers: 908870 (98.85% are singletons); average occurrences: 1.021; average spacing: 5.501; total length: 5104823
+[M::worker_pipeline::0.709*1.58] mapped 4 sequences
+[M::main] Version: 2.24-r1155-dirty
+[M::main] CMD: flye-minimap2 -x map-ont -t 12 -k 17 -a -p 0.5 -N 10 --sam-hit-only -L -K 1G -z 1000 -Q --secondary-seq -I 64G /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/flye_out/40-polishing/filtered_contigs.fasta /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/flye_out/30-contigger/graph_final.fasta
+[M::main] Real time: 0.712 sec; CPU: 1.124 sec; Peak RSS: 0.174 GB
