@@ -1,0 +1,21 @@
+Assembly	consensus
+# misassemblies	26
+  # contig misassemblies	26
+    # c. relocations	26
+    # c. translocations	0
+    # c. inversions	0
+  # scaffold misassemblies	0
+    # s. relocations	0
+    # s. translocations	0
+    # s. inversions	0
+# misassembled contigs	2
+Misassembled contigs length	5012629
+# local misassemblies	10
+# scaffold gap ext. mis.	0
+# scaffold gap loc. mis.	0
+# unaligned mis. contigs	0
+# mismatches	1389
+# indels	251
+    # indels (<= 5 bp)	219
+    # indels (> 5 bp)	32
+Indels length	2848

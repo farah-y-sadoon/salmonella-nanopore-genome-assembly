@@ -1,0 +1,116 @@
+/opt/anaconda3/envs/quast/bin/quast.py assembly/flye_out/10-consensus/consensus.fasta -r data/GCF_000006945.2_ASM694v2_genomic.fna -o assembly/quast/qc_draft_assembly
+
+Version: 5.2.0
+
+System information:
+  OS: macOS-15.5-arm64-arm-64bit (macosx)
+  Python version: 3.9.23
+  CPUs number: 14
+
+Started: 2026-01-31 17:00:16
+
+Logging to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/quast.log
+NOTICE: Maximum number of threads is set to 3 (use --threads option to set it manually)
+
+CWD: /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly
+Main parameters: 
+  MODE: default, threads: 3, min contig length: 500, min alignment length: 65, min alignment IDY: 95.0, \
+  ambiguity: one, min local misassembly length: 200, min extensive misassembly length: 1000
+
+Reference:
+  /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/data/GCF_000006945.2_ASM694v2_genomic.fna ==> GCF_000006945.2_ASM694v2_genomic
+
+Contigs:
+  Pre-processing...
+  assembly/flye_out/10-consensus/consensus.fasta ==> consensus
+
+2026-01-31 17:00:16
+Running Basic statistics processor...
+  Reference genome:
+    GCF_000006945.2_ASM694v2_genomic.fna, length = 4951383, num fragments = 2, GC % = 52.24
+  Contig files: 
+    consensus
+  Calculating N50 and L50...
+    consensus, N50 = 3333392, L50 = 1, auN = 2708280.3, Total length = 5151055, GC % = 52.19, # N's per 100 kbp =  0.00
+  Drawing Nx plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/basic_stats/Nx_plot.pdf
+  Drawing NGx plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/basic_stats/NGx_plot.pdf
+  Drawing cumulative plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/basic_stats/GC_content_plot.pdf
+  Drawing consensus GC content plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/basic_stats/consensus_GC_content_plot.pdf
+Done.
+
+2026-01-31 17:00:17
+Running Contig analyzer...
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.24). Please make sure that you use an actual version of software.
+  consensus
+  Logging to files /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/contigs_reports/contigs_report_consensus.stdout and contigs_report_consensus.stderr...
+  Aligning contigs to the reference
+WARNING: Version of installed minimap2 differs from its version in the QUAST package (2.24). Please make sure that you use an actual version of software.
+  /opt/anaconda3/envs/quast/bin/minimap2 -c -x asm10 -B5 -O4,16 --no-long-join -r \
+  200 -N 50 -s 65 -z 200 --mask-level 0.9 --min-occ 200 -g 2500 --score-N 2 --cs -t \
+  3 assembly/quast/qc_draft_assembly/quast_corrected_input/GCF_000006945.2_ASM694v2_genomic.fna \
+  assembly/quast/qc_draft_assembly/quast_corrected_input/consensus.fasta > assembly/quast/qc_draft_assembly/contigs_reports/minimap_output/consensus.coords_tmp \
+  2>> assembly/quast/qc_draft_assembly/contigs_reports/contigs_report_consensus.stderr
+  Analysis is finished.
+
+  Creating total report...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/contigs_reports/misassemblies_report.txt, misassemblies_report.tsv, and misassemblies_report.tex
+  Transposed version of total report...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/contigs_reports/transposed_report_misassemblies.txt, transposed_report_misassemblies.tsv, and transposed_report_misassemblies.tex
+  Creating total report...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/contigs_reports/unaligned_report.txt, unaligned_report.tsv, and unaligned_report.tex
+  Drawing misassemblies by types plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/contigs_reports/misassemblies_plot.pdf
+  Drawing misassemblies FRCurve plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/contigs_reports/misassemblies_frcurve_plot.pdf
+Done.
+
+2026-01-31 17:00:18
+Running NA-NGA calculation...
+  consensus, Largest alignment = 953685, NA50 = 460926, NGA50 = 460926, LA50 = 4, LGA50 = 4
+  Drawing cumulative plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/aligned_stats/cumulative_plot.pdf
+  Drawing NAx plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/aligned_stats/NAx_plot.pdf
+  Drawing NGAx plot...
+    saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/aligned_stats/NGAx_plot.pdf
+Done.
+
+2026-01-31 17:00:18
+Running Genome analyzer...
+  NOTICE: No file with genomic features were provided. Use the --features option if you want to specify it.
+
+  NOTICE: No file with operons were provided. Use the -O option if you want to specify it.
+  consensus
+  Analysis is finished.
+  Skipping drawing Genome fraction, % histogram... (less than 2 columns histogram makes no sense)
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2026-01-31 17:00:18
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating PDF with all tables and plots...
+  2 of 2: Creating Icarus viewers...
+Done
+
+2026-01-31 17:00:19
+RESULTS:
+  Text versions of total report are saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/report.html
+  PDF version (tables and plots) is saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/report.pdf
+  Icarus (contig browser) is saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/icarus.html
+  Log is saved to /Users/farahsadoon/Desktop/m.binf/binf_6110/salmonella-nanopore-genome-assembly/assembly/quast/qc_draft_assembly/quast.log
+
+Finished: 2026-01-31 17:00:19
+Elapsed time: 0:00:02.551667
+NOTICEs: 4; WARNINGs: 2; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

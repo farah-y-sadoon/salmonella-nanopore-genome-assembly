@@ -7,50 +7,50 @@ Assembly                     consensus
 # contigs (>= 10000 bp)      3         
 # contigs (>= 25000 bp)      3         
 # contigs (>= 50000 bp)      3         
-Total length (>= 0 bp)       5151063   
-Total length (>= 1000 bp)    5151063   
-Total length (>= 5000 bp)    5151063   
-Total length (>= 10000 bp)   5151063   
-Total length (>= 25000 bp)   5151063   
-Total length (>= 50000 bp)   5151063   
+Total length (>= 0 bp)       5151055   
+Total length (>= 1000 bp)    5151055   
+Total length (>= 5000 bp)    5151055   
+Total length (>= 10000 bp)   5151055   
+Total length (>= 25000 bp)   5151055   
+Total length (>= 50000 bp)   5151055   
 # contigs                    3         
-Largest contig               3333397   
-Total length                 5151063   
+Largest contig               3333392   
+Total length                 5151055   
 Reference length             4951383   
 GC (%)                       52.19     
 Reference GC (%)             52.24     
-N50                          3333397   
-NG50                         3333397   
-N90                          1679241   
-NG90                         1679241   
-auN                          2708285.1 
-auNG                         2817505.2 
+N50                          3333392   
+NG50                         3333392   
+N90                          1679237   
+NG90                         1679237   
+auN                          2708280.3 
+auNG                         2817495.8 
 L50                          1         
 LG50                         1         
 L90                          2         
 LG90                         2         
 # misassemblies              26        
 # misassembled contigs       2         
-Misassembled contigs length  5012638   
+Misassembled contigs length  5012629   
 # local misassemblies        10        
 # scaffold gap ext. mis.     0         
 # scaffold gap loc. mis.     0         
 # unaligned mis. contigs     0         
 # unaligned contigs          1 + 2 part
-Unaligned length             388509    
+Unaligned length             388510    
 Genome fraction (%)          95.601    
 Duplication ratio            1.006     
 # N's per 100 kbp            0.00      
-# mismatches per 100 kbp     30.09     
-# indels per 100 kbp         5.50      
-Largest alignment            953687    
-Total aligned length         4762484   
+# mismatches per 100 kbp     29.17     
+# indels per 100 kbp         5.27      
+Largest alignment            953685    
+Total aligned length         4762475   
 NA50                         460926    
 NGA50                        460926    
 NA90                         72349     
 NGA90                        101719    
-auNA                         461320.3  
-auNGA                        479924.5  
+auNA                         461318.8  
+auNGA                        479922.1  
 LA50                         4         
 LGA50                        4         
 LA90                         15        
