@@ -8,3 +8,4 @@ GCF_000006945.2_ASM694v2_genomic.fna filter=lfs diff=lfs merge=lfs -text
 *.bam filter=lfs diff=lfs merge=lfs -text
 *.hdf filter=lfs diff=lfs merge=lfs -text
 *.h5 filter=lfs diff=lfs merge=lfs -text
+*.sam filter=lfs diff=lfs merge=lfs -text
