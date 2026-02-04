@@ -46,6 +46,13 @@ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/945/GCF_000006945.2_AS
 gunzip GCF_000006945.2_ASM694v2_genomic.fna.gz
 ```
 
+### Download Reference Genome Annotation from NCBI
+```bash
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/945/GCF_000006945.2_ASM694v2/GCF_000006945.2_ASM694v2_genomic.gff.gz
+
+gunzip GCF_000006945.2_ASM694v2_genomic.gff.gz
+```
+
 ## 2. Quality Assessment and Assembly
 ### Initial Read Quality Assessment with Nanoplot
 
@@ -228,3 +235,74 @@ apptainer exec -B /project:/project ${CONTAINER} \
   --haploid_precise \
   --no_phasing_for_fa"
 ```
+## Visualizing Assembly and Variants
+### Comparing Polished Assembly to Reference with MUMmer 
+```bash
+conda create -n mummer
+
+conda activate mummer
+
+conda install mummer
+
+# Create delta file to describe structural differences between assembly and reference 
+nucmer -prefix=senter_asm_vs_ref data/GCF_000006945.2_ASM694v2_genomic.fna assembly/medaka_out/consensus.fasta
+
+# Visualize structural differences with a dot plot
+mummerplot --filter --fat --prefix=senter_asm_vs_ref senter_asm_vs_ref.delta #--filter to show only the best hit to any particular spot on either sequence (one-to-one mapping of references and query subsequences)
+
+```
+#### Investigating Read Coverage at Junctions
+
+### Comparing SNP, Insertion, Deletion Proportions between Chromosome and Plasmid
+```bash
+# Create a file without the VCF headers, only keep the calls that passed quality check and output chromosome, position, ID, reference sequence, alternative sequence to a text file
+grep -v "^#" merge_output.vcf | awk '$7 == "PASS" {print $1, $2, $4, $5}' > pass_variants.txt
+```
+
+```r
+# Prepare libraries
+library(tidyverse)
+
+# Load data 
+df_variants <- read_table("pass_variants.txt", col_names = FALSE) %>% 
+  rename(chromosome = X1, 
+         position = X2, 
+         ref = X3, 
+         alt = X4)
+
+# Determine variant type based on string length and distinguish plasmid from chromosome
+df_variants <- df_variants %>% 
+  mutate(type = case_when(
+    nchar(ref) == nchar(alt) ~ "SNP", 
+    nchar(ref) > nchar(alt) ~ "Deletion",
+    nchar(ref) < nchar(alt) ~ "Insertion"
+  )) %>% 
+    mutate(contig_label = if_else(chromosome == "NC_003277.2", "Plasmid", "Chromosome"))
+
+# Calculate proportions
+type_counts <- df_variants %>% 
+  count(type, contig_label) %>% 
+  rename(variant_type = type, 
+         count = n)
+
+# Visualize Variant-Type Proportions with a Bar Chart
+ggplot(type_counts, aes(x = contig_label, y = count, fill = variant_type)) +
+  geom_bar(stat = "identity", position = position_dodge(preserve = "single")) +
+  geom_text(aes(label = count), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5) + 
+  labs(title = "Comparative Analysis of Chromosomal and Plasmid Variants",
+       subtitle = "Categorization of SNPs, insertions, and deletions in Salmonlla enterica following ONT R10.4 sequencing and Clair3 variant calling",
+       x = NULL,
+       y = "Total Count",
+       fill = "Variant Type") +
+  scale_fill_brewer(palette = "Dark2") + 
+  theme_minimal()
+```
+### Inspecting Specific Genes
+Specific SNPs found: 
+- **fliC** gene at position 2,048,377 on the chromosome ; Reference: C, Alternate: T, Qual: 38.38 -- synonymous mutation!! changed amino acid from E to K (E = glutamic acid, K = lysine)
+
+- **PSLT059** gene at position(s) 50,038 and 50,040 that correspond to the same amino acid. Original sequence = AGA, alternate sequence: CGG - this is a silent mutation, because both of these codes correspond to Arginine
+
+-- **STM1239 - SopF** gene at position 1,326,724 on the chromosome; Reference: A, Alternate: C,  -- synonymous mutation!! changed AA from T to P (T = Threonine, P = Proline)
