@@ -21,17 +21,41 @@ For variant detection, the polished assembly `.fasta` produced by Medaka will be
 ### Pipeline 
 ```mermaid
 flowchart LR
-  A["Raw ONT R10.4 reads<br/>(SRR32410565)"] --> B["Seqkit v2.12.0<br/>Filter: --min-len 1000, --min-qual 16"]
-  B --> C["Flye v2.9.6<br/>--nano-hq, --genome-size 5m, --asm-coverage 162"]
-  C --> D["Medaka v2.2.0<br/>medaka_consensus, --bacteria"]
-  
-  subgraph MUMmer_Suite ["MUMmer v4.x"]
-    F["nucmer alignment<br/>delta-filter -1"] --> G["show-snps<br/>Identify SNPs/indels"]
-    G --> H["mummerplot<br/>Visualize differences"]
+  A[Raw ONT Reads<br/>SRR32410565]
+
+  subgraph H1[1. Data Acquisition]
+    A --> B[SRA to FASTQ<br/>SRATools]
+    C[Reference Genome<br/>NCBI FNA]
+    D[Reference Annotation<br/>NCBI GFF]
   end
 
-  D --> F
-  D --> E["QUAST v5.3.0<br/>QC vs ASM694v2"]
+  subgraph H2[2. Quality Assessment and Assembly]
+    B --> E[Initial QC<br/>NanoPlot]
+    E --> F[Read Filtering<br/>SeqKit]
+    F --> G[Post-filter QC<br/>NanoPlot]
+    G --> H[De novo Assembly<br/>Flye]
+    H --> I[Draft Assembly QC<br/>QUAST]
+    I --> J[Polishing<br/>Medaka]
+    J --> K[Polished Assembly QC<br/>QUAST]
+  end
+
+  subgraph H3[3. Alignment and Variant Calling]
+    F --> L[Alignment to Reference<br/>Minimap2]
+    L --> M[BAM Processing<br/>Samtools]
+    M --> N[Variant Calling<br/>Clair3 run via Apptainer on DRAC Fir Cluster]
+  end
+
+  subgraph H4[4. Visualization and Analysis <br/>]
+    J --> O[Assembly vs Reference<br/>MUMmer]
+    N --> P[Variant Filtering and Summary]
+    P --> Q[Statistical Analysis and Plots<br/>R ggplot2]
+    Q --> R[Gene-level Interpretation<br/>IGV]
+  end
+
+  %% New independent connections
+  C --> F
+  C --> Q
+  D --> Q
 
 ```
 ## References
