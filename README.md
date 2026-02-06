@@ -29,7 +29,8 @@ flowchart LR
     D[Reference Annotation<br/>NCBI GFF ASM694v2]
   end
 
-  subgraph H2[2. Quality Assessment and Assembly]
+  subgraph H4["`4. Visualization and
+Interpretation`"]
     B --> E[Initial QC<br/>NanoPlot]
     E --> F[Read Filtering<br/>SeqKit]
     F --> G[Post-filter QC<br/>NanoPlot]
