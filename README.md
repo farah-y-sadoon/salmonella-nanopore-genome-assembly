@@ -29,7 +29,7 @@ flowchart LR
     D[Reference Annotation<br/>NCBI GFF ASM694v2]
   end
 
-  subgraph H4[4. Visualization and Interpretation<br\>.]
+  subgraph H2[2. Quality Assessment and Assembly]
     B --> E[Initial QC<br/>NanoPlot]
     E --> F[Read Filtering<br/>SeqKit]
     F --> G[Post-filter QC<br/>NanoPlot]
@@ -45,7 +45,7 @@ flowchart LR
     M --> N[Variant Calling<br/>Clair3 Apptainer on DRAC Fir Cluster]
   end
 
-  subgraph H4[4. Visualization and Analysis <br/>.]
+  subgraph H4[4. Visualization and Analysis]
     J --> O[Assembly vs Reference<br/>MUMmer]
     N --> P[Variant Filtering and Summary]
     P --> Q[Statistical Analysis and Plots<br/>R ggplot2]
@@ -56,6 +56,7 @@ flowchart LR
   C --> F
   C --> H4
   D --> R
+
 ```
 ## References
 1. Didelot X, Bowden R, Wilson DJ, Peto TEA, Crook DW. 2012. Transforming clinical microbiology with bacterial genome sequencing. Nature Reviews Genetics 13:601–612. [doi:10.1038/nrg3226](https://doi.org/10.1038/nrg3226) 
