@@ -25,8 +25,8 @@ flowchart LR
 
   subgraph H1[1. Data Acquisition]
     A --> B[SRA to FASTQ<br/>SRATools]
-    C[Reference Genome<br/>NCBI FNA]
-    D[Reference Annotation<br/>NCBI GFF]
+    C[Reference Genome<br/>NCBI FASTA ASM694v2]
+    D[Reference Annotation<br/>NCBI GFF ASM694v2]
   end
 
   subgraph H2[2. Quality Assessment and Assembly]
@@ -42,10 +42,10 @@ flowchart LR
   subgraph H3[3. Alignment and Variant Calling]
     F --> L[Alignment to Reference<br/>Minimap2]
     L --> M[BAM Processing<br/>Samtools]
-    M --> N[Variant Calling<br/>Clair3 run via Apptainer on DRAC Fir Cluster]
+    M --> N[Variant Calling<br/>Clair3 Apptainer on DRAC Fir Cluster]
   end
 
-  subgraph H4[4. Visualization and Analysis <br/>]
+  subgraph H4[4. Visualization and Analysis <br/>.]
     J --> O[Assembly vs Reference<br/>MUMmer]
     N --> P[Variant Filtering and Summary]
     P --> Q[Statistical Analysis and Plots<br/>R ggplot2]
@@ -54,9 +54,8 @@ flowchart LR
 
   %% New independent connections
   C --> F
-  C --> Q
-  D --> Q
-
+  C --> H4
+  D --> R
 ```
 ## References
 1. Didelot X, Bowden R, Wilson DJ, Peto TEA, Crook DW. 2012. Transforming clinical microbiology with bacterial genome sequencing. Nature Reviews Genetics 13:601–612. [doi:10.1038/nrg3226](https://doi.org/10.1038/nrg3226) 
