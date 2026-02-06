@@ -29,8 +29,7 @@ flowchart LR
     D[Reference Annotation<br/>NCBI GFF ASM694v2]
   end
 
-  subgraph H4["`4. Visualization and
-Interpretation`"]
+  subgraph H4["4. Visualization and Interpretation <br\>."]
     B --> E[Initial QC<br/>NanoPlot]
     E --> F[Read Filtering<br/>SeqKit]
     F --> G[Post-filter QC<br/>NanoPlot]
