@@ -102,8 +102,7 @@ conda install flye
 flye --nano-hq data/filtered_SRR32410565.fastq --genome-size 5m --asm-coverage 157 --out-dir assembly/flye_out --threads 12
 ```
 
-## 3. Quality Assessment and Polishing 
-### Quality Assessment of the Assembled Genome with QUAST
+### Quality Assessment of the Assembled Draft Genome with QUAST
 ```bash
 conda create -n quast python=3.9 -y
 
@@ -137,10 +136,10 @@ medaka_consensus -i data/SRR32410565.fastq -d assembly/flye_out/10-consensus/con
 ```bash
 conda deactivate 
 
-quast.py assembly/medaka_out/consensus.fasta -r data/GCF_000006945.2_ASM694v2_genomic.fna -o assembly/quast/qc_polished_assembly # no drastic change here, most-likely because the basecalling was very accurate. there are changes reported so polishing was effective, QUAST just doesn't explain / highlight the biological importance.
+quast.py assembly/medaka_out/consensus.fasta -r data/GCF_000006945.2_ASM694v2_genomic.fna -o assembly/quast/qc_polished_assembly # no drastic change here, most-likely because the basecalling was very accurate.
 ```
 
-## 4. Alignment and Variant Calling 
+## 3. Alignment and Variant Calling 
 ### Alignment of Filtered Reads to Reference Genome with Minimap2
 ```bash
 minimap2 -ax map-ont data/GCF_000006945.2_ASM694v2_genomic.fna data/filtered_SRR32410565.fastq > alignment/aligned_filtered_senter.sam
@@ -159,6 +158,9 @@ samtools index alignment/sorted_aligned_senter.bam
 
 # Index reference genome
 samtools faidx data/GCF_000006945.2_ASM694v2_genomic.fna
+
+# Investigate coverage depth for plasmid vs chromosome
+samtools coverage -a alignment/sorted_aligned_senter.bam
 
 ```
 
@@ -235,7 +237,7 @@ apptainer exec -B /project:/project ${CONTAINER} \
   --haploid_precise \
   --no_phasing_for_fa"
 ```
-## Visualizing Assembly and Variants
+## 4. Visualizing Assembly and Variants
 ### Comparing Polished Assembly to Reference with MUMmer 
 ```bash
 conda create -n mummer
@@ -299,10 +301,3 @@ ggplot(type_counts, aes(x = contig_label, y = count, fill = variant_type)) +
   scale_fill_brewer(palette = "Dark2") + 
   theme_minimal()
 ```
-### Inspecting Specific Genes
-Specific SNPs found: 
-- **fliC** gene at position 2,048,377 on the chromosome ; Reference: C, Alternate: T, Qual: 38.38 -- synonymous mutation!! changed amino acid from E to K (E = glutamic acid, K = lysine)
-
-- **PSLT059** gene at position(s) 50,038 and 50,040 that correspond to the same amino acid. Original sequence = AGA, alternate sequence: CGG - this is a silent mutation, because both of these codes correspond to Arginine
-
--- **STM1239 - SopF** gene at position 1,326,724 on the chromosome; Reference: A, Alternate: C,  -- synonymous mutation!! changed AA from T to P (T = Threonine, P = Proline)
