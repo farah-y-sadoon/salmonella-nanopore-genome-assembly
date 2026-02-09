@@ -253,7 +253,6 @@ nucmer -prefix=senter_asm_vs_ref data/GCF_000006945.2_ASM694v2_genomic.fna assem
 mummerplot --filter --fat --prefix=senter_asm_vs_ref senter_asm_vs_ref.delta #--filter to show only the best hit to any particular spot on either sequence (one-to-one mapping of references and query subsequences)
 
 ```
-#### Investigating Read Coverage at Junctions
 
 ### Comparing SNP, Insertion, Deletion Proportions between Chromosome and Plasmid
 ```bash
